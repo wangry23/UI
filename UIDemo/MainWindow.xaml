@@ -11,6 +11,7 @@
         NonActiveGlowBrush="#CDFF0000"
         GlowBrush="{DynamicResource GrayBrush1}"
         Background="#FF1E1E1E"
+                      TitleCaps="False"
         xmlns:local="clr-namespace:UIDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">

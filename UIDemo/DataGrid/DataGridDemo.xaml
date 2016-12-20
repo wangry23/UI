@@ -9,13 +9,103 @@
              xmlns:local="clr-namespace:UIDemo.DataGrid"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <Style x:Key="tbR" TargetType="{x:Type TextBlock}">
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="5,0,5,0" />
+            </Style>
+            <Style x:Key="tbL" TargetType="{x:Type TextBlock}">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="5,0,5,0" />
+            </Style>
+        </ResourceDictionary>
+    </Controls:MetroWindow.Resources>
     <Grid>
+        <!--
         <DataGrid GridLinesVisibility="All" ItemsSource="{Binding DataGridSources}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="第一列" Binding="{Binding First}"></DataGridTextColumn>
                 <DataGridTextColumn Header="第二列" Binding="{Binding Second}"></DataGridTextColumn>
                 <DataGridTextColumn Header="第三列" Binding="{Binding Third}"></DataGridTextColumn>
                 <DataGridTextColumn Header="第四列" Binding="{Binding Forth}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        -->
+        <DataGrid
+			x:Name="stockList1" 
+			AutoGenerateColumns="False" 
+			IsReadOnly="True" 
+			HeadersVisibility="Column"                  
+			EnableRowVirtualization="True"
+			EnableColumnVirtualization="True"  
+			ScrollViewer.IsDeferredScrollingEnabled="False"
+			Background="Transparent"
+            GridLinesVisibility="All"
+            AlternationCount="2"
+            HorizontalGridLinesBrush="#FF23272B"
+            VerticalGridLinesBrush="#FF23272B"
+            >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroDataGridColumnHeader}">
+                    <!--
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="{StaticResource GridHeaderLineBrush}" />
+                    -->
+                    <!--
+                    <Setter Property="Background" Value="{DynamicResource AccentBaseColorBrush}" />
+                    -->
+                    <Setter Property="Background" Value="#FF282E32" />
+
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style BasedOn="{StaticResource MetroDataGridRow}" TargetType="{x:Type DataGridRow}">
+                    <!--
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="{StaticResource GridRowLineBrush}" />
+                    -->
+                    <!--
+                    <Setter Property="Background" Value="{DynamicResource AccentBaseColorBrush}" />
+                    -->
+                    <Setter Property="Background" Value="#FF1E2024" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true">
+                            <!--Setter Property="Background" Value="{DynamicResource AccentColorBrush3}" /-->
+                            <Setter Property="Background" Value="#FF284569" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource self}}" Value="true">
+                            <Setter Property="Background" Value="#FF284569" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="排序" Width="48" Binding="{Binding First}" ElementStyle="{StaticResource tbR}" />
+                <DataGridTextColumn Header="代码" Width="83.3" Binding="{Binding Second}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
+                <DataGridTextColumn Header="名称" Width="85" Binding="{Binding Third}" ElementStyle="{StaticResource tbL}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

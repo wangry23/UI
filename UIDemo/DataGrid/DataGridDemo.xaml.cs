@@ -38,12 +38,12 @@ namespace UIDemo.DataGrid
             }
         }
         public string Second { get; set; }
-        public string Thrid { get; set; }
+        public string Third { get; set; }
         public string Forth { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void Notify(string propName)
+        protected void Notify(string propName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
@@ -65,12 +65,15 @@ namespace UIDemo.DataGrid
             InitializeComponent();
 
             DataGridSources = new ObservableCollection<DataNode>();
-            DataGridSources.Add(new DataNode() { First = "1", Second = "2", Thrid = "3", Forth = "4" });
-            DataGridSources.Add(new DataNode() { First = "1", Second = "2", Thrid = "3", Forth = "4" });
-            DataGridSources.Add(new DataNode() { First = "1", Second = "2", Thrid = "3", Forth = "4" });
-            DataGridSources.Add(new DataNode() { First = "1", Second = "2", Thrid = "3", Forth = "4" });
-            DataGridSources.Add(new DataNode() { First = "1", Second = "2", Thrid = "3", Forth = "4" });
+            DataGridSources.Add(new DataNode() { First = "11111111111", Second = "2", Third = "3", Forth = "4" });
+            DataGridSources.Add(new DataNode() { First = "1", Second = "2", Third = "3333333333333", Forth = "4" });
+            DataGridSources.Add(new DataNode() { First = "1", Second = "2", Third = "3", Forth = "4" });
+            DataGridSources.Add(new DataNode() { First = "1", Second = "222222222222222", Third = "3", Forth = "4" });
+            int loop = 0;
+            while(loop ++ < 10000)
+                DataGridSources.Add(new DataNode() { First = loop.ToString(), Second = "2", Third = "3", Forth = "4" });
 
+            stockList1.ItemsSource = DataGridSources;
         }
     }
 }

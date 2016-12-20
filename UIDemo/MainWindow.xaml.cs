@@ -25,5 +25,11 @@ namespace UIDemo
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UIDemo.DataGrid.DataGridDemo dataGrid = new DataGrid.DataGridDemo();
+            dataGrid.ShowDialog();
+        }
     }
 }
